@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0
+COPY TestApp/ App/
+WORKDIR /App
+RUN dotnet publish "TestApp.csproj" -c Release -o /output
+WORKDIR /output
+ENTRYPOINT ["dotnet", "TestApp.dll"]
